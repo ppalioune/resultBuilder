@@ -8,8 +8,6 @@ class Test {
         this.snippets = [];
         this.table = [];
     }
-
-    constructor(uniqueName){this.uniqueName = uniqueName}
     
     //setters
     set setTitle(title){
@@ -47,6 +45,4 @@ class Test {
     addSnippets (snippets){
         this.snippets.push(snippets)
     }
-
-    // etc...
 }
