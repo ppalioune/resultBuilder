@@ -13,6 +13,11 @@ class ResultBuilder {
         this.tests.push(testInstance);
         return testInstance;
     }
+
+    //this method returns test results
+    getResultsTests(){
+        return this.tests
+    }
     
     toJson() {
         return JSON.stringify(this.toArray());
