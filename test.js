@@ -10,31 +10,41 @@ class Test {
     }
     
     //setters
-    set setTitle(title){
+    setUniqueName(uniqueName){
+        this.uniqueName = uniqueName
+        return this
+    }
+    setTitle(title){
         this.title = title
+        return this
     }
-    set setDescription(description){
+    setDescription(description){
         this.description = description
+        return this
     }
-    set setWeight(weight){
-        this.weight = weight;
+    setWeight(weight){
+        this.weight = weight
+        return this
     }
     
 
     //getters
-    get getTitle() {
+    getUniqueName() {
+        return this.uniqueName
+    }
+    getTitle() {
         return this.title
     }
-    get getDescription() {
+    getDescription() {
         return this.description
     }
-    get getWeight() {
+    getWeight() {
         return this.weight
     }
-    get getRecommandations() {
+    getRecommandations() {
         return this.recommandations
     }
-    get getSnippets() {
+    getSnippets() {
         return this.snippets
     }
 
@@ -42,7 +52,7 @@ class Test {
     addRecommandation(recommandation) {
         this.recommandations.push(recommandation);
     }
-    addSnippets (snippets){
-        this.snippets.push(snippets)
+    addSnippets (snippet){
+        this.snippets.push(snippet)
     }
 }
