@@ -3,10 +3,9 @@ class ResultBuilder {
         this.tests = [];
     }
     
-    newTest(uniqueName, title, description, weight) {
-        const testInstance = new Test(uniqueName, title, description, weight);
-        testInstance.setUniqueName('my-unique-name')
-                    .setTitle('my-title')
+    newTest(uniqueName) {
+        const testInstance = new Test(uniqueName);
+        testInstance.setTitle('my-title')
                     .setDescription('my-description')
                     .setWeight(0.5)
         testInstance.addRecommandation('my-recommandation')
@@ -19,3 +18,6 @@ class ResultBuilder {
         return JSON.stringify(this.toArray());
     }
 }
+
+const x = new ResultBuilder()
+console.log(x);

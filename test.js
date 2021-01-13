@@ -10,8 +10,8 @@ class Test {
     }
     
     //setters
-    setUniqueName(uniqueName){
-        this.uniqueName = uniqueName
+    setTitle(title){
+        this.title = title
         return this
     }
     setTitle(title){
@@ -29,9 +29,6 @@ class Test {
     
 
     //getters
-    getUniqueName() {
-        return this.uniqueName
-    }
     getTitle() {
         return this.title
     }
