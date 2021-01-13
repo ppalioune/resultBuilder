@@ -19,5 +19,3 @@ class ResultBuilder {
     }
 }
 
-const x = new ResultBuilder()
-console.log(x);
