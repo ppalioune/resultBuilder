@@ -4,6 +4,7 @@ class Test {
         this.title = title;
         this.description = description;
         this.weight = weight;
+        this.score = score;
         this.recommandations = [];
         this.snippets = [];
         this.table = [];
@@ -11,22 +12,31 @@ class Test {
     
     //setters
     setTitle(title){
-        this.title = title
-        return this
-    }
-    setTitle(title){
-        this.title = title
-        return this
+        if (typeof title === 'string') {
+            this.title = title
+            return this
+        }
     }
     setDescription(description){
-        this.description = description
-        return this
+        if (typeof description === "string") {
+            this.description = description
+            return this    
+        }
     }
+        
     setWeight(weight){
-        this.weight = weight
-        return this
+        if (typeof weight === "number" && (weight > 0 && weight < 1)) {
+            this.weight = weight
+            return this    
+        } 
+        
     }
-    
+    setScore(score){
+        if (typeof score === "number" && (score > 0 && score < 1)) {
+            this.score = score
+            return this  
+        } 
+    }
 
     //getters
     getTitle() {
@@ -37,6 +47,9 @@ class Test {
     }
     getWeight() {
         return this.weight
+    }
+    getScore() {
+        return this.score
     }
     getRecommandations() {
         return this.recommandations

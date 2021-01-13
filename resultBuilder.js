@@ -4,14 +4,9 @@ class ResultBuilder {
     }
     
     newTest(uniqueName) {
-        const testInstance = new Test(uniqueName);
-        testInstance.setTitle('my-title')
-                    .setDescription('my-description')
-                    .setWeight(0.5)
-        testInstance.addRecommandation('my-recommandation')
-        testInstance.addSnippets('my-snippets')
-        this.tests.push(testInstance);
-        return testInstance;
+        const testInstance = new Test(uniqueName)
+        this.tests.push(testInstance)
+        return testInstance
     }
 
     //this method returns test results
@@ -21,6 +16,14 @@ class ResultBuilder {
     
     toJson() {
         return JSON.stringify(this.toArray());
+    }
+
+    //convert result to key value format
+    toArray(){
+
+        for (let t of this.tests.entries()) {
+           return t;
+        }
     }
 }
 
