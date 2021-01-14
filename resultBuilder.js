@@ -17,7 +17,6 @@ class ResultBuilder {
     toJson() {
         return JSON.stringify(this.toArray());
     }
-
     //convert result to key value format
     toArray(){
 
