@@ -20,7 +20,7 @@ class ResultBuilder {
     //convert result to key value format
     toArray(){
 
-        for (let t of this.tests.entries()) {
+        for (let t of tests.entries()) {
            return t;
         }
     }
