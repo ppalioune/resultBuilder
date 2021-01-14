@@ -1,5 +1,5 @@
 class Test {
-    constructor(uniqueName, title = '', description = '', weight = null) {
+    constructor(uniqueName, title = '', description = '', weight = null, score = null) {
         this.uniqueName = uniqueName;
         this.title = title;
         this.description = description;
@@ -25,14 +25,14 @@ class Test {
     }
         
     setWeight(weight){
-        if (typeof weight === "number" && (weight > 0 && weight < 1)) {
+        if (typeof weight === "number" && (weight >= 0 && weight <= 1)) {
             this.weight = weight
             return this    
         } 
         
     }
     setScore(score){
-        if (typeof score === "number" && (score > 0 && score < 1)) {
+        if (typeof score === "number" && (score >= 0 && score <= 1)) {
             this.score = score
             return this  
         } 
