@@ -17,12 +17,13 @@ class ResultBuilder {
     toJson() {
         return JSON.stringify(this.toArray());
     }
-    //convert result to key value format
-    toArray(){
 
-        for (let t of tests.entries()) {
-           return t;
-        }
+    /*convert result to key value format
+    toArray(){
+        return Object.entries(this.tests)
+    }*/
+    toArray() {
+        return this.tests.map(element => JSON.parse(JSON.stringify(element)));
     }
 }
 
