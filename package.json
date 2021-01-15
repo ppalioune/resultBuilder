@@ -1,0 +1,24 @@
+{
+  "name": "resultsBuilder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "resultBuilder.js",
+  "scripts": {
+    "test": "mocha testUnit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppalioune/resultsBuilder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppalioune/resultsBuilder/issues"
+  },
+  "homepage": "https://github.com/ppalioune/resultsBuilder#readme",
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "request": "^2.88.2"
+  }
+}

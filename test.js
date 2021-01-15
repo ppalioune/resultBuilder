@@ -66,3 +66,5 @@ class Test {
         this.snippets.push(snippet)
     }
 }
+
+module.exports = Test;

@@ -1,3 +1,4 @@
+const Test = require('./test')
 class ResultBuilder {
     constructor() {
         this.tests = [];
@@ -27,3 +28,4 @@ class ResultBuilder {
     }
 }
 
+module.exports = ResultBuilder;
