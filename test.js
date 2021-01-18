@@ -25,17 +25,30 @@ class Test {
     }
         
     setWeight(weight){
-        if (typeof weight === "number" && (weight >= 0 && weight <= 1)) {
-            this.weight = weight
-            return this    
-        } 
+        try {
+            if (typeof weight === "number" && (weight >= 0 && weight <= 1)) {
+                this.weight = weight
+                return this   
+            } else {
+                //this.weight = 0
+                throw new Error("invalid value for weight. must be a number between 0 and 1 !!!")  
+            }
+        } catch (error) {
+            console.log(error)
+        }
         
     }
-    setScore(score){
-        if (typeof score === "number" && (score >= 0 && score <= 1)) {
-            this.score = score
-            return this  
-        } 
+    setScore(score){        
+        try {
+            if (typeof score === "number" && (score >= 0 && score <= 1)) {
+                this.score = score
+                return this  
+            } else {
+                throw new Error("invalid value for score. must be a number between 0 and 1 !!!")    
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     //getters

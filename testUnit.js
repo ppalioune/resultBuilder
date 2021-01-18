@@ -10,8 +10,8 @@ describe("integration test", function() {
         let  test1 = resultBuilder.newTest("unique nqme 1")
         test1.setDescription("description 1")
         test1.setTitle("title 1")
-        test1.setWeight(1)
-        test1.setScore(0.5)
+        test1.setWeight(7)
+        test1.setScore(9)
         test1.addRecommandation("recommandation 1")
         test1.addSnippets(" snippets 1")
         //complete the elements of the 2nd test
@@ -27,6 +27,9 @@ describe("integration test", function() {
             console.log("no data found !!!!!")
         } else {
             console.log(resultBuilder.getResultsTests().length)
+            console.log("---------------------Display withn toArray method ---------------------")
+            console.log(resultBuilder.toArray())
+            console.log("---------------------Display withn toJson method ---------------------")
             console.log( resultBuilder.toJson());
         }
 
