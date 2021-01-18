@@ -5,6 +5,8 @@ const assert = require('assert').strict;
 describe("integration test", function() {
     it("should be able to complete the attributes", function() {
         let  resultBuilder = new ResultBuilder();
+
+        //complete the elements of the 1st test
         let  test1 = resultBuilder.newTest("unique nqme 1")
         test1.setDescription("description 1")
         test1.setTitle("title 1")
@@ -12,7 +14,7 @@ describe("integration test", function() {
         test1.setScore(0.5)
         test1.addRecommandation("recommandation 1")
         test1.addSnippets(" snippets 1")
-        
+        //complete the elements of the 2nd test
         let test2 = resultBuilder.newTest("unique name 2")
         test2.setDescription("desc 2")
         test2.setTitle("title 2")
