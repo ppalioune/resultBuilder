@@ -28,9 +28,6 @@ describe("integration test", function() {
             console.log( resultBuilder.toJson());
         }
 
-        console.log(resultBuilder.getResultsTests().length)
-        console.log( resultBuilder.toJson());
-
        
     });
 });
