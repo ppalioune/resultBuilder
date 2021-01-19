@@ -9,46 +9,37 @@ class Test {
         this.snippets = [];
         this.table = [];
     }
-    
+
     //setters
-    setTitle(title){
+    setTitle(title) {
         if (typeof title === 'string') {
             this.title = title
             return this
         }
     }
-    setDescription(description){
+    setDescription(description) {
         if (typeof description === "string") {
             this.description = description
-            return this    
+            return this
         }
     }
-        
-    setWeight(weight){
-        try {
-            if (typeof weight === "number" && (weight >= 0 && weight <= 1)) {
-                this.weight = weight
-                return this   
-            } else {
-                //this.weight = 0
-                throw new Error("invalid value for weight. must be a number between 0 and 1 !!!")  
-            }
-        } catch (error) {
-            console.log(error)
+    setWeight(weight) {
+        if (typeof weight === "number" && (weight >= 0 && weight <= 1)) {
+            this.weight = weight
+        } else {
+            //this.weight = 0
+            throw new Error("invalid value for weight. must be a number between 0 and 1 !!!")
         }
-        
+        return this
     }
-    setScore(score){        
-        try {
-            if (typeof score === "number" && (score >= 0 && score <= 1)) {
-                this.score = score
-                return this  
-            } else {
-                throw new Error("invalid value for score. must be a number between 0 and 1 !!!")    
-            }
-        } catch (error) {
-            console.log(error)
+
+    setScore(score) {
+        if (typeof score === "number" && (score >= 0 && score <= 1)) {
+            this.score = score
+        } else {
+            throw new Error("invalid value for score. must be a number between 0 and 1 !!!")
         }
+        return this
     }
 
     //getters
@@ -73,10 +64,20 @@ class Test {
 
     //methods
     addRecommandation(recommandation) {
-        this.recommandations.push(recommandation);
+        if (typeof recommandation === 'string') {
+            this.recommandations.push(recommandation);
+        } else {
+            throw new Error ("Invalid value for recommandation. Must be a string !")
+        }
+        return this
     }
-    addSnippets (snippet){
-        this.snippets.push(snippet)
+    addSnippet(snippet) {
+        if (typeof snippet === 'string') {
+            this.snippets.push(snippet)
+        } else {
+            throw new Error ("Invalid value for recommandation. Must be a string !")
+        }
+        return this
     }
 }
 
