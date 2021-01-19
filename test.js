@@ -79,6 +79,15 @@ class Test {
         }
         return this
     }
+
+    addTable(table){
+        if (Array.isArray(table)) {
+            this.table.push(table)
+        } else {
+            throw new Error ("Invalid value for table. Must be a type array !")
+        }
+        return this
+    }
 }
 
 module.exports = Test;
