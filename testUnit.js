@@ -33,7 +33,7 @@ describe("integration test", function () {
 
     });
 
-    it('Check there is a test', function () {
+    it('should test if there is a test', function () {
         assert.notEqual(resultBuilder.getResultsTests().length, 0, " Data not found !")
         //assert.ok(resultBuilder.toJson())
     });
