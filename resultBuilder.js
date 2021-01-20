@@ -14,9 +14,22 @@ class ResultBuilder {
     getResultsTests(){
         return this.tests
     }
-    
+    //format the result in json format
     toJson() {
         return JSON.stringify(this.toArray(), null,4);
+    }
+    //test the result is a json format
+    isJson(input){
+        if (typeof input!=="string"){
+            return false;
+        }
+        try{
+            JSON.parse(input);
+            return true;
+        }
+        catch (error){
+            return false;
+        }
     }
 
     //convert result to key value format
