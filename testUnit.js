@@ -35,7 +35,9 @@ describe("Building result", function () {
     });
     it("should throw an error when a test already exists", function() {
         resultBuilder.newTest("name-1");
-        assert.throws(() => { resultBuilder.newTest("name-1"); }, Error);
+        assert.throws(() => { resultBuilder.newTest("name-1"); }, "This name is already exist");
+
+
     })
     it("should test that the results are in json format", function () {
         resultBuilder.newTest("name-4")
@@ -46,7 +48,6 @@ describe("Building result", function () {
         resultBuilder.newTest("name-5")
         assert.ok(Array.isArray(resultBuilder.getResultsTests()))
     })
-   
 
     it("Should throw an error when weight have invalid value, ", function () {
         let test = resultBuilder.newTest("name-7")
@@ -59,14 +60,24 @@ describe("Building result", function () {
         test.setScore("a string")
         assert.throws(() => { test.setScore("a string"); }, Error)
     })
-    
-    /*it("Should be detect error when there is a valid value", function () {
-        resultBuilder.newTest("name-3")
-            .setTitle("title 3")
-            .setWeight(4)
-            .setScore(" score-3")
-            .setDescription(3)        
-        
-        console.log(resultBuilder.getResultsTests());
-    })*/
+
+    it("Should throw an error when recommandation have invalid value", function () {
+        let test = resultBuilder.newTest("name-6").addRecommandation(1)
+        assert.throws(() => {test.addRecommandation(1)}, Error)
+    })
+
+    it("Should throw an error when recommandation have invalid value", function () {
+        let test = resultBuilder.newTest("name-6").addRecommandation(1)
+        assert.throws(() => {test.addRecommandation(1)}, Error)
+    })
+
+    it("Should throw an error when snippet have invalid value", function () {
+        let test = resultBuilder.newTest("name-6").addSnippet(1)
+        assert.throws(() => {test.addSnippet(1)}, Error)
+    })
+
+    it("Should throw an error when table have invalid value", function () {
+        let test = resultBuilder.newTest("name-6").addTable("a string")
+        assert.throws(() => {test.addTable("a string")}, Error)
+    })
 });
