@@ -75,7 +75,7 @@ class Test {
         if (typeof snippet === 'string') {
             this.snippets.push(snippet)
         } else {
-            throw new Error ("Invalid value for recommandation. Must be a string !")
+            throw new Error ("Invalid value for snippet. Must be a string !")
         }
         return this
     }
