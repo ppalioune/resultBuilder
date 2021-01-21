@@ -10,7 +10,7 @@ npm i result-builder
 ```
 # Usage
 Then, you can include it in your project and use like this
-```
+```javascript
 const ResultBuilder = require('result-Builder')
 //...
 const resultsBuilder = new ResultBuilder(); 
@@ -26,6 +26,27 @@ test.setDescription(.....);
 return resultsBuilder.getResultsTests(); 
 ```
 
-# Methods
+# List of methods and functions
+
+| Methods               | Descriptions     | 
+| :--------------------- | :--------------- |
+| newTest(string)      | allow to set up a new test   |
+| getResultsTests()     | allow to get all the list of all the recorded tests  |
+| toJson()              | convert the result to a JSON format  |
+| isJson()              | allow you to test if an object is in json format   |
+| toArray()             | convert all the results into an array |
+| addRecommandation(string) |this allows you to add recommendations. only strings are accepted |
+| addSnippet(string)  | this allows you to add snippets. only  strings are accepted|
+| addTable(string[])             | |
+| setTitle(string)             | |
+| setDescription(string)             | |
+| setWeight(number)             | |
+| setScore(number)             | |
+| getTitle()             | |
+| getDescription()             | |
+| getWeight()             | |
+| getScore()             | |
+| getSnippets()             | |
+
 
 # Examples
