@@ -8,8 +8,23 @@ It is a library that allows to present the results obtained by the koalati tools
 ```
 npm i result-builder
 ```
-
 # Usage
+Then, you can include it in your project and use like this
+```
+const ResultBuilder = require('result-Builder')
+//...
+const resultsBuilder = new ResultBuilder(); 
+const test = resultsBuilder.newTest(.....);
+test.setDescription(.....);
+    .setTitle(.....)
+            .setWeight(....)
+            .setScore(.....)
+            .addRecommandation(.....)
+            .addSnippet(....)
+            .addTable(.....)
+// ... 
+return resultsBuilder.getResultsTests(); 
+```
 
 # Methods
 
