@@ -27,16 +27,20 @@ return resultsBuilder.getResultsTests();
 ```
 
 # List of methods and functions
-
+## Methods of resultBuilder Class
 | Methods               | Descriptions     | 
 | :--------------------- | :--------------- |
-| newTest(string)      | allow to set up a new test   |
-| getResultsTests()     | allow to get all the list of all the recorded tests  |
-| toJson()              | convert the result to a JSON format  |
-| isJson()              | allow you to test if an object is in json format   |
-| toArray()             | convert all the results into an array |
-| addRecommandation(string, string[]) |this allows you to add recommendations indicating to the user improvements to be made. only strings are accepted |
-| addSnippet(string[])  | allows you to add code snippets from the results obtained.|
+| newTest(string)      | Allow to set up a new test   |
+| getResultsTests()     | Allow to get all the list of all the recorded tests  |
+| toJson()              | Convert the result to a JSON format  |
+| isJson()              | Allow you to test if an object is in json format   |
+| toArray()             | Convert all the results into an array |
+
+## Methods of test Class
+| Methods               | Descriptions     | 
+| :--------------------- | :--------------- |
+| addRecommandation(string, string[]) |Allows you to add recommendations indicating to the user improvements to be made. only strings are accepted |
+| addSnippet(string[])  | Allows you to add code snippets from the results obtained.|
 | addTable(array[])             | |
 | setTitle(string)             | Allow tou to add a user-friendly title. Only string are accepted|
 | setDescription(string)             | Allow you to add a user-friendly description of the test. Only string are accepted|
