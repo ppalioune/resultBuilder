@@ -11,7 +11,7 @@ npm i result-builder
 # Usage
 Then, you can include it in your project and use like this
 ```javascript
-const ResultBuilder = require('result-Builder')
+const ResultBuilder = require('result-builder')
 //...
 const resultsBuilder = new ResultBuilder(); 
 const test = resultsBuilder.newTest(.....);
