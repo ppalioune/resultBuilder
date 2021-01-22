@@ -49,4 +49,5 @@ return resultsBuilder.getResultsTests();
 | getSnippets()             | Allows you to get the list of snippets|
 
 
-# Examples
+# Licence
+MIT-licensed
