@@ -12,32 +12,38 @@ class Test {
 
     //setters
     setTitle(title) {
-        if (typeof title === 'string') {
-            this.title = title
-            return this
+        if (typeof title !== "string") {
+            throw new Error("invalid value for title. must be a string !!!")
         }
+        else {
+            this.title = title
+        }
+        return this
     }
     setDescription(description) {
-        if (typeof description === "string") {
-            this.description = description
-            return this
+        if (typeof description !== "string") {
+            throw new Error("invalid value for description. must be a string !!!")
         }
+        else {
+            this.description = description
+        }
+        return this
     }
     setWeight(weight) {
-        if (typeof weight === "number" && (weight >= 0 && weight <= 1)) {
-            this.weight = weight
-        } else {
-            //this.weight = 0
+        if (typeof weight !== "number" || weight < 0 || weight > 1) {
             throw new Error("invalid value for weight. must be a number between 0 and 1 !!!")
+        } else {
+            this.weight = weight
         }
         return this
     }
 
     setScore(score) {
-        if (typeof score === "number" && (score >= 0 && score <= 1)) {
+        if (typeof score !== "number" || score < 0 || score > 1) {
+            throw new Error("Invalid value for score. must be a number between 0 and 1.")
+        }
+        else{
             this.score = score
-        } else {
-            throw new Error("invalid value for score. must be a number between 0 and 1 !!!")
         }
         return this
     }
@@ -64,27 +70,27 @@ class Test {
 
     //methods
     addRecommandation(recommandation) {
-        if (typeof recommandation === 'string') {
-            this.recommandations.push(recommandation);
-        } else {
+        if (typeof recommandation !== 'string') {
             throw new Error ("Invalid value for recommandation. Must be a string !")
+        } else {
+            this.recommandations.push(recommandation);
         }
         return this
     }
     addSnippet(snippet) {
-        if (typeof snippet === 'string') {
-            this.snippets.push(snippet)
-        } else {
+        if (typeof snippet !== 'string' && typeof snippet !== 'ElementHandle') {
             throw new Error ("Invalid value for snippet. Must be a string !")
+        } else {
+            this.snippets.push(snippet)
         }
         return this
     }
 
-    addTable(table){
-        if (Array.isArray(table)) {
-            this.table.push(table)
-        } else {
+    addTableRow(table){
+        if (!Array.isArray(table)) {
             throw new Error ("Invalid value for table. Must be a type array !")
+        } else {
+            this.table.push(table)
         }
         return this
     }
