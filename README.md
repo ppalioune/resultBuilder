@@ -15,11 +15,11 @@ const ResultBuilder = require('result-builder')
 //...
 const resultsBuilder = new ResultBuilder(); 
 const test = resultsBuilder.newTest(.....);
-test.setDescription(.....);
-    .setTitle(.....)
-    .setWeight(....)
-    .setScore(.....)
-    .addRecommandation(.....)
+test.setDescription("my-description");
+    .setTitle("my-title")
+    .setWeight(0.5)
+    .setScore(0.5)
+    .addRecommandation("my-recommandation")
     .addSnippet(....)
     .addTable(.....)
 // ... 
