@@ -7,7 +7,6 @@ describe("Building result", function () {
 
     it('should start empty', function () {
         assert.equal(resultBuilder.getResultsTests().length, 0)
-        //assert.ok(resultBuilder.toJson())
     });
 
     it("should be able to add a new entry", function () {
@@ -19,7 +18,7 @@ describe("Building result", function () {
             .setScore(1)
             .addRecommandation("zzzz")
             .addSnippet(" snippets 1")
-            .addTable( [
+            .addTableRow( [
                 "",
                 "URL",
                 "Resource Size",
@@ -33,11 +32,10 @@ describe("Building result", function () {
         resultBuilder.newTest("name-2")
         assert.equal(resultBuilder.getResultsTests().length, 3);
     });
+
     it("should throw an error when a test already exists", function() {
-        resultBuilder.newTest("name-1");
-        assert.throws(() => { resultBuilder.newTest("name-1"); }, "This name is already exist");
-
-
+        resultBuilder.newTest("name");
+        assert.throws(() => { resultBuilder.newTest("name"); }, Error);
     })
     it("should test that the results are in json format", function () {
         resultBuilder.newTest("name-4")
@@ -51,33 +49,26 @@ describe("Building result", function () {
 
     it("Should throw an error when weight have invalid value, ", function () {
         let test = resultBuilder.newTest("name-7")
-        test.setWeight(9)
-        assert.throws(() => { test.setScore("a string"); }, Error)
+        assert.throws(() => { test.setWeight("a string"); }, Error)
     })
 
     it("Should throw an error when score have invalid value, ", function () {
         let test = resultBuilder.newTest("name-6")
-        test.setScore("a string")
         assert.throws(() => { test.setScore("a string"); }, Error)
     })
 
     it("Should throw an error when recommandation have invalid value", function () {
-        let test = resultBuilder.newTest("name-6").addRecommandation(1)
-        assert.throws(() => {test.addRecommandation(1)}, Error)
-    })
-
-    it("Should throw an error when recommandation have invalid value", function () {
-        let test = resultBuilder.newTest("name-6").addRecommandation(1)
+        let test = resultBuilder.newTest("name-6")
         assert.throws(() => {test.addRecommandation(1)}, Error)
     })
 
     it("Should throw an error when snippet have invalid value", function () {
-        let test = resultBuilder.newTest("name-6").addSnippet(1)
+        let test = resultBuilder.newTest("name-6")
         assert.throws(() => {test.addSnippet(1)}, Error)
     })
 
     it("Should throw an error when table have invalid value", function () {
-        let test = resultBuilder.newTest("name-6").addTable("a string")
-        assert.throws(() => {test.addTable("a string")}, Error)
+        let test = resultBuilder.newTest("name-6")
+        assert.throws(() => {test.addTableRow("a string")}, Error)
     })
 });
