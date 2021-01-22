@@ -17,11 +17,11 @@ const resultsBuilder = new ResultBuilder();
 const test = resultsBuilder.newTest(.....);
 test.setDescription(.....);
     .setTitle(.....)
-            .setWeight(....)
-            .setScore(.....)
-            .addRecommandation(.....)
-            .addSnippet(....)
-            .addTable(.....)
+    .setWeight(....)
+    .setScore(.....)
+    .addRecommandation(.....)
+    .addSnippet(....)
+    .addTable(.....)
 // ... 
 return resultsBuilder.getResultsTests(); 
 ```
