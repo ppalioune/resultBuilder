@@ -71,4 +71,9 @@ describe("Building result", function () {
         let test = resultBuilder.newTest("name-11")
         assert.throws(() => {test.addTableRow("a string")}, Error)
     })
+
+    it("Should throw an error when the addtable method does not have the same number of columns", function () {
+        let test = resultBuilder.newTest("name-12")
+        assert.throws(() => {test.addTableRow("a array")}, Error)
+    })
 });

@@ -86,10 +86,19 @@ class Test {
         return this
     }
 
-    addTableRow(table){
+    addTableRow(table) {
         if (!Array.isArray(table)) {
-            throw new Error ("Invalid value for table. Must be a type array !")
+            throw new Error ("The provided 'table' parameter must be an array.")
         } else {
+            const firstRowColumnCount = typeof this.table[0] == 'undefined' ? null : this.table[0].length;
+            if (firstRowColumnCount !== null && table.length != firstRowColumnCount) {
+                throw new Error(
+                    "Every row in the table should have the same number of columns. This row has %rowCount columns; %expectedCount are expected."
+                        .replace('%rowCount', table.length)
+                        .replace('%expectedCount', firstRowColumnCount)
+                )
+            }
+            
             this.table.push(table)
         }
         return this
