@@ -53,22 +53,22 @@ describe("Building result", function () {
     })
 
     it("Should throw an error when score have invalid value, ", function () {
-        let test = resultBuilder.newTest("name-6")
+        let test = resultBuilder.newTest("name-8")
         assert.throws(() => { test.setScore("a string"); }, Error)
     })
 
     it("Should throw an error when recommandation have invalid value", function () {
-        let test = resultBuilder.newTest("name-6")
+        let test = resultBuilder.newTest("name-9")
         assert.throws(() => {test.addRecommandation(1)}, Error)
     })
 
     it("Should throw an error when snippet have invalid value", function () {
-        let test = resultBuilder.newTest("name-6")
+        let test = resultBuilder.newTest("name-10")
         assert.throws(() => {test.addSnippet(1)}, Error)
     })
 
     it("Should throw an error when table have invalid value", function () {
-        let test = resultBuilder.newTest("name-6")
+        let test = resultBuilder.newTest("name-11")
         assert.throws(() => {test.addTableRow("a string")}, Error)
     })
 });
