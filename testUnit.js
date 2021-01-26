@@ -3,7 +3,36 @@ const assert = require('assert').strict;
 
 describe("Building result", function () {
 
-    let resultBuilder = new ResultBuilder();
+    // Build a sample result builder & result set
+    const sampleResultBuilder = new ResultBuilder();
+    sampleResultBuilder.newTest("Test name")
+        .setDescription("My test's sample description")
+        .setTitle("User-friendly title")
+        .setWeight(1)
+        .setScore(1)
+        .addRecommandation("Sample recommandation #1")
+        .addRecommandation("Sample recommandation #2")
+        .addSnippet("<h1>Lorem Ipsum</h1>")
+        .addTableRow(["Heading 1", "Heading 2", "Heading 3", ""])
+        .addTableRow(["Value 1", "Value 2", "Value 3", "Value 4"]);
+    const expectedSampleResultArray = [
+        {
+            "uniqueName": "Test name",
+            "title": "User-friendly title",
+            "description": "My test's sample description",
+            "weight": 1,
+            "score": 1,
+            "recommandations": ["Sample recommandation #1", "Sample recommandation #2"],
+            "snippets": ["<h1>Lorem Ipsum</h1>"],
+            "table": [
+                ["Heading 1", "Heading 2", "Heading 3", ""],
+                ["Value 1", "Value 2", "Value 3", "Value 4" ]
+            ]
+        }
+    ];
+
+    const resultBuilder = new ResultBuilder();
+    let workingTest = null;
 
     it('should start empty', function () {
         assert.equal(resultBuilder.getResultsTests().length, 0)
@@ -11,20 +40,20 @@ describe("Building result", function () {
 
     it("should be able to add a new entry", function () {
         //complete the elements of the 1st test
-        let test1 = resultBuilder.newTest("h1-heading")
-        test1.setDescription("description 1")
+        workingTest = resultBuilder.newTest("h1-heading")
+        workingTest.setDescription("description 1")
             .setTitle("H1 headings")
             .setWeight(1)
             .setScore(1)
             .addRecommandation("zzzz")
             .addSnippet(" snippets 1")
-            .addTableRow( [
+            .addTableRow([
                 "",
                 "URL",
                 "Resource Size",
                 "Potential Savings"
-              ])
-              assert.equal(resultBuilder.getResultsTests().length, 1)
+            ])
+        assert.equal(resultBuilder.getResultsTests().length, 1)
     });
 
     it("should keep test references internally", function() {
@@ -37,43 +66,35 @@ describe("Building result", function () {
         resultBuilder.newTest("name");
         assert.throws(() => { resultBuilder.newTest("name"); }, Error);
     })
-    it("should test that the results are in json format", function () {
-        resultBuilder.newTest("name-4")
-        assert.ok(resultBuilder.isJson(resultBuilder.toJson()))
+    it("should return valid JSON results when calling ResultBuilder.toJson()", function () {
+        assert.deepStrictEqual(JSON.parse(sampleResultBuilder.toJson()), expectedSampleResultArray)
     })
 
-    it("should test that the results are in array format ", function () {
-        resultBuilder.newTest("name-5")
-        assert.ok(Array.isArray(resultBuilder.getResultsTests()))
+    it("should return valid results when calling ResultBuilder.toArray()", function () {
+        assert.deepStrictEqual(sampleResultBuilder.toArray(), expectedSampleResultArray)
     })
 
-    it("Should throw an error when weight have invalid value, ", function () {
-        let test = resultBuilder.newTest("name-7")
-        assert.throws(() => { test.setWeight("a string"); }, Error)
+    it("Should throw an error when Test.setWeight have invalid value, ", function () {
+        assert.throws(() => { workingTest.setWeight("a string"); }, Error)
     })
 
-    it("Should throw an error when score have invalid value, ", function () {
-        let test = resultBuilder.newTest("name-8")
-        assert.throws(() => { test.setScore("a string"); }, Error)
+    it("Should throw an error when Test.setScore have invalid value, ", function () {
+        assert.throws(() => { workingTest.setScore("a string"); }, Error)
     })
 
-    it("Should throw an error when recommandation have invalid value", function () {
-        let test = resultBuilder.newTest("name-9")
-        assert.throws(() => {test.addRecommandation(1)}, Error)
+    it("Should throw an error when Test.addRecommandation have invalid value", function () {
+        assert.throws(() => { workingTest.addRecommandation(1) }, Error)
     })
 
-    it("Should throw an error when snippet have invalid value", function () {
-        let test = resultBuilder.newTest("name-10")
-        assert.throws(() => {test.addSnippet(1)}, Error)
+    it("Should throw an error when Test.addSnippet have invalid value", function () {
+        assert.throws(() => { workingTest.addSnippet(1) }, Error)
     })
 
-    it("Should throw an error when table have invalid value", function () {
-        let test = resultBuilder.newTest("name-11")
-        assert.throws(() => {test.addTableRow("a string")}, Error)
+    it("Should throw an error when Test.addTableRow have invalid value", function () {
+        assert.throws(() => { workingTest.addTableRow("a string") }, Error)
     })
 
-    it("Should throw an error when the addtable method don't have the same number of columns", function () {
-        let test = resultBuilder.newTest("name-12")
-        assert.throws(() => {test.addTableRow("a array")}, Error)
+    it("Should throw an error when the Test.addTableRow() method receives a row with a different number of columns than existing rows", function () {
+        assert.throws(() => { workingTest.addTableRow([""]) }, Error)
     })
 });
