@@ -20,7 +20,7 @@ test.setDescription("my-description");
     .setWeight(0.5)
     .setScore(0.5)
     .addRecommandation("my-recommandation")
-    .addSnippet(....)
+    .addSnippet()
     .addTablerow([
         [
             "entry table 1",
@@ -46,20 +46,20 @@ return resultsBuilder.getResultsTests();
 | toArray()         | Convert all the results into an array               |
 
 ## Methods of test Class
-| Methods                             | Descriptions                                                                                                |
-| :---------------------------------- | :---------------------------------------------------------------------------------------------------------- |
-| addRecommandation(string, string[]) | Allows you to add recommendations indicating to the user improvements to be made. only strings are accepted |
-| addSnippet(string[])                | Allows you to add code snippets from the results obtained.                                                  |
-| addTable(array[])                   |                                                                                                             |
+| Methods                             | Descriptions |
+| :---------------------------------  | :------------------------------- |
+| addRecommandation(string, string[]) | Allows you to add recommendations indicating to the user improvements to be made. Only strings are accepted |
+| addSnippet(string[])                | Allows you to add code snippets from the results obtained.|
+| addTableRow(array[])                |Allows you to add a data table for koalati results. All entries are in row form which has the same number of columns. |
 | setTitle(string)                    | Allow tou to add a user-friendly title. Only string are accepted                                            |
-| setDescription(string)              | Allow you to add a user-friendly description of the test. Only string are accepted                          |
-| setWeight(number)                   | allows you to add the value of the test weight. Only  number between 0 and 1.0                              |
-| setScore(float)                     | allows you to add the value of the test score. Only  number between 0 and 1.0                               |
-| getTitle()                          | Allow you to get the title name                                                                             |
-| getDescription()                    | Allow you to get the description                                                                            |
-| getWeight()                         | Allows you to get the weight value                                                                          |
-| getScore()                          | Allows you to get the score value                                                                           |
-| getSnippets()                       | Allows you to get the list of snippets                                                                      |
+| setDescription(string)              | Allow you to add a user-friendly description of the test. Only string are accepted.|
+| setWeight(number)                   | allows you to add the value of the test weight. Only  number between 0 and 1.0 .|
+| setScore(float)                     | allows you to add the value of the test score. Only  number between 0 and 1.0 .|
+| getTitle()                          | Allow you to get the result title.|
+| getDescription()                    | Allow you to get the result description.|
+| getWeight()                         | Allows you to get the result weight.|
+| getScore()                          | Allows you to get the result score.|
+| getSnippets()                       | Allows you to get the list of snippets.|
 
 
 # Licence
