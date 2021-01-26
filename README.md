@@ -20,7 +20,7 @@ test.setDescription("my-description");
     .setWeight(0.5)
     .setScore(0.5)
     .addRecommandation("my-recommandation")
-    .addSnippet()
+    .addSnippet(["my-snippet"])
     .addTablerow([
         [
             "entry table 1",
@@ -49,7 +49,7 @@ return resultsBuilder.getResultsTests();
 | Methods                             | Descriptions |
 | :---------------------------------  | :------------------------------- |
 | addRecommandation(string, string[]) | Allows you to add recommendations indicating to the user improvements to be made. Only strings are accepted |
-| addSnippet(string[], [ElementHandle](https://pptr.dev/#?product=Puppeteer&version=main&show=api-class-elementhandle)) | Allows you to add code snippets from the results obtained.|
+| addSnippet(string[], [ElementHandle](https://pptr.dev/#?product=Puppeteer&version=main&show=api-class-elementhandle) []| Allows you to add code snippets from the results obtained.|
 | addTableRow(array[])                |Allows you to add a data table for koalati results. All entries are in row form which has the same number of columns. |
 | setTitle(string)                    | Allow tou to add a user-friendly title. Only string are accepted                                            |
 | setDescription(string)              | Allow you to add a user-friendly description of the test. Only string are accepted.|
